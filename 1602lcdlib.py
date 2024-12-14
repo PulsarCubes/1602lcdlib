@@ -85,6 +85,6 @@ class LCD:
 if __name__ == "__main__":
     #based off of my personal setup lol
     lcd=LCD(16,17,18,19,20,21)
-    lcd.splitstringdisplay('this library is written by PulsarCubes')
+    lcd.display('this library is written by PulsarCubes')
 
 

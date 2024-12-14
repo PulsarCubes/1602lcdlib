@@ -2,7 +2,7 @@ import machine
 import utime
 
 #this assumes you are using a non-i2c 1602 and are using the pins listed
-#code based off of how2electronics.com's guide (https://how2electronics.com/interfacing-16x2-lcd-display-with-raspberry-pi-pico/)
+#code based off of how2electronics.com's guide
 
 class LCD:
     def __init__(self, rs,e,d4,d5,d6,d7):
@@ -61,8 +61,9 @@ class LCD:
             return first_part, second_part
         else:
             return string, ""
-    def splitstringdisplay(self,string):
+    def display(self,string):
         first, second = self.split_string(string)
+        self.clearLCD()
         self.writetolcd(first)
         self.lcdnewline(len(first))
         self.writetolcd(second)
@@ -82,7 +83,8 @@ class LCD:
 
 
 if __name__ == "__main__":
+    #based off of my personal setup lol
     lcd=LCD(16,17,18,19,20,21)
-    lcd.clearLCD()
     lcd.splitstringdisplay('this library is written by PulsarCubes')
+
 
